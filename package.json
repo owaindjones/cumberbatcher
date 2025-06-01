@@ -1,0 +1,32 @@
+{
+  "name": "cumberbatcher",
+  "version": "1.0.0",
+  "description": "a fantasy name generator for fecundity and chortles",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/owaindjones/cumberbatcher.git"
+  },
+  "keywords": [
+    "benedict",
+    "cumberbatch",
+    "benedict-cumberbatch",
+    "name",
+    "generator",
+    "word",
+    "words",
+    "random",
+    "fantasy",
+    "fun",
+    "library"
+  ],
+  "author": "Owain Jones",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/owaindjones/cumberbatcher/issues"
+  },
+  "homepage": "https://github.com/owaindjones/cumberbatcher#readme"
+}

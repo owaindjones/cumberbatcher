@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+        <link href="https://fonts.cdnfonts.com/css/handwriting" rel="stylesheet">
+        <title>the cumberbatcher</title>
+        <style>
+            #name-outer {
+                background-color: rgba(255, 255, 255, 0.8);
+                margin: 1rem -1rem;
+                padding: 0px;
+                cursor: pointer;
+                width: calc(100% + 2rem);
+                height: 8rem;
+                overflow: clip;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+            }
+            #name {
+                margin: 0;
+                text-decoration: underline;
+                text-decoration-color: #999;
+                text-decoration-style: dotted;
+                text-decoration-skip: none;
+                text-decoration-skip-ink: all;
+                text-decoration-skip-spaces: none;
+                font-family: "Handwriting", "Comic Sans MS", sans-serif;
+                font-style: italic;
+                font-size: 300%;
+                color: black;
+                text-align: center;
+                text-wrap: pretty;
+                text-overflow: fade;
+                transform-origin: center;
+                width: 100%;
+                height: 100%;
+                padding-right: 1rem;
+                text-align: justify-all;
+                transition: opacity 1s ease-out;
+            }
+            #name:hover {
+                color: #45D;
+            }
+            #name:active {
+                color: #67F;
+            }
+            .loading {
+                color: #777 !important;
+            }
+            html, body {
+                width: 100vw;
+                height: 100vh;
+                overflow: hidden;
+                margin: 0;
+                padding: 0;
+            }
+            body {
+                font-family: sans-serif;
+                text-align: left;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                background-color: #f3f9ff;
+                background-image: linear-gradient(to right, #ffffff, #ffffff 4rem, #f3f9ff 4rem, #f3f9ff);
+                background-size: 8rem 100%;
+            }
+            #outer {
+                margin: 0;
+                padding: 0;
+                width: calc(min(45rem, 100vw) - 4rem);
+                border-radius: 1rem;
+                box-shadow: 2rem 2rem 5rem rgba(0, 0, 0, 0.3), .5rem .5rem 1rem rgba(0, 0, 0, 0.5);
+                background: none;
+                transition: rotate 1s ease-in-out, scale 1s ease-in-out, box-shadow 1s ease-in-out;
+                transform-origin: top;
+                rotate: 0.1deg;
+                scale: 1.001;
+                opacity: 0.99;
+            }
+            @property --bg-rot {
+                syntax: '<angle>';
+                initial-value: 283deg;
+                inherits: false; 
+            }
+            #nametag {
+                box-sizing: border-box;
+                margin: 0 auto;
+                align-self: center;
+                mask: radial-gradient(circle at 50% 3rem,rgba(0, 0, 0, 0) 4%, rgba(0, 0, 0, 1) 4%);
+                width: 100%;
+                border-radius: 1rem;
+                padding: 1rem;
+                text-shadow: 0 0 5px rgba(0, 0, 0, 0.25);
+                background-image: linear-gradient(var(--bg-rot), darkblue 33%, royalblue 75%, darkblue 100%);
+                color: white;
+                transition: --bg-rot 1s ease-in-out;
+                opacity: 0.99;
+            }
+            #button {
+                margin: -1rem;
+                border-radius: 0px 0px 1rem 1rem;
+                border: none;
+                padding: 1rem;
+                font-size: 125%;
+                background: none;
+                font-style: italic;
+                width: calc(100% + 2rem);
+                cursor: pointer;
+                font-weight: bold;
+                color: white;
+                text-align: right;
+                text-decoration: underline;
+            }
+            #button:hover {
+                background-color: #ffffff33;
+            }
+            #button:active {
+                background-color: #ffffff66;
+            }
+            #button[disabled] {
+                background-color: inset !important;
+            }
+            #greeting {
+                text-align: left;
+                h2 {
+                    text-transform: uppercase;
+                    color: yellow;
+                    line-height: 0.33;
+                    font-size-adjust: .7;
+                    position: relative;
+                    left: -1.5rem;
+                }
+                h3 {
+                    line-height: 0;
+                }
+                margin-bottom: 2rem;
+            }
+            #hole {
+                position: relative;
+                top: 1.8rem;
+                left: calc(50% - 1.2rem);
+                box-shadow: .25rem .25rem 1rem inset #000000ff;
+                width: 2.4rem;
+                height: 2.4rem;
+                padding: 0;
+                margin: 0;
+                float: left;
+                border-radius: 4rem;
+                overflow: hidden;
+            }
+            .lanyard {
+                position: fixed;
+                float: left;
+                top: calc(50% - ((1345px / 2) + 31.5rem));
+                left: calc(50% - (768px / 2) + 4rem);
+                bottom: 12rem;
+                width: 40rem;
+                filter: drop-shadow(2rem 2rem 5rem rgba(0, 0, 0, 0.3)) drop-shadow(.5rem .5rem 1rem rgba(0, 0, 0, 0.5));
+                transition: rotate 1s ease-in-out, scale 1s ease-in-out;
+                transform-origin: bottom;
+                rotate: 0.1deg;
+            }
+            #top-lanyard {
+                clip-path: rect(1028px 700px 1200px 309px);
+                filter: unset;
+            }
+            .swinger {
+                rotate: -2deg !important;
+                scale: 1.05 !important;
+                box-shadow: 4rem 4rem 10rem rgba(0, 0, 0, 0.3), 1rem 1rem 2rem rgba(0, 0, 0, 0.5) !important;
+
+                .lanyard {
+                    rotate: -4deg !important;
+                }
+
+                #nametag {
+                    --bg-rot: 287deg;
+                }
+                
+                #name {
+                    opacity: 0;
+                }
+            }
+            footer {
+                position: fixed;
+                float: left;
+                left: 0.5rem;
+                bottom: 0.5rem;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="outer">
+            <img class="lanyard" src="lanyard.png" />
+            <div id="hole"></div>
+            <div id="nametag">
+                <div id="greeting">
+                    <h2>Hello&trade;</h2>
+                    <h3>My name is</h3>
+                </div>
+                <div id="name-outer">
+                    <div id="name-wrapper">
+                        <h1 id="name" class="loading" title="Click to copy!">Namey McNamerson</h1>
+                     </div>
+                </div>
+                <button type="button" id="button">&blacktriangleright;&nbsp;How can I help?&trade;</button>
+            </div>
+            <img id="top-lanyard" class="lanyard" src="lanyard.png" />
+        </div>
+        <footer>
+            <a href="https://github.com/owaindjones/cumberbatcher" target="_new">what the hell is this</a>
+        </footer>
+        <script type="module">
+            import { Cumberbatcher } from "./index.js";
+            let cumberbatcher = new Cumberbatcher();
+
+            let swinger = null;
+            
+            async function doIt() {
+                document.getElementById("outer").classList.remove("swinger");
+                document.getElementById("button").setAttribute("disabled", "");
+                window.requestAnimationFrame(() => {
+                    if (swinger) {
+                        clearTimeout(swinger);
+                    }
+                    cumberbatcher.generate();
+                    document.getElementById("outer").classList.add("swinger");
+                    swinger = setTimeout(() => {
+                        document.getElementById("name").innerHTML = cumberbatcher.name;
+                        document.getElementById("name").classList.remove("loading");
+                        resize();
+                        document.getElementById("outer").classList.remove("swinger");
+                        document.getElementById("button").removeAttribute("disabled");
+                    }, 1000);
+                });
+            }
+
+            function copy() {
+                navigator.clipboard.writeText(
+                    document.getElementById("name").innerText
+                );
+            }
+
+            async function resize() {
+                let outer = document.getElementById("name-outer");
+                let name = document.getElementById("name");
+                let w = (outer.clientWidth / (name.scrollWidth));
+                let h = (outer.clientHeight / (name.scrollHeight));
+                name.style.scale = Math.min(w, h);
+            }
+            
+            document.getElementById("button").addEventListener("click", doIt);
+            document.getElementById("name").addEventListener("click", copy);
+            window.addEventListener("resize", resize);
+            resize();
+            doIt();
+        </script>
+    </body>
+</html>
