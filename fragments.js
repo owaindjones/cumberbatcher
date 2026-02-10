@@ -126,7 +126,7 @@ export const fragments = [
     new Fragment(" tea party", {position: Position.END}),
     new Fragment(" technically ", {}),
     new Fragment(" the wisp ", {}),
-    new Fragment("top ", {position: position.START}),
+    new Fragment("top ", {position: Position.START}),
     new Fragment(" towers", {position: Position.END}),
     new Fragment(" umm ", {}),
     new Fragment(" undefined ", {}),
