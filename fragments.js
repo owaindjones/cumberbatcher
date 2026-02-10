@@ -1995,7 +1995,7 @@ export const fragments = [
     new Fragment("spud", {}),
     new Fragment("square", {}),
     new Fragment("squeak", {}),
-    new Fragment("/", {}),
+    new Fragment("SQUEAK", {}),
     new Fragment("squid", {}),
     new Fragment("squishy", {}),
     new Fragment("stain", {}),
