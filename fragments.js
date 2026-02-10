@@ -1335,7 +1335,7 @@ export const fragments = [
     new Fragment("massive", {}),
     new Fragment("master", {position: Position.START}),
     new Fragment("maths", {}),
-    new Fragment("Mavolio", position: Position.ALONE, type: Type.FORENAME}),
+    new Fragment("Mavolio", {position: Position.ALONE, type: Type.FORENAME}),
     new Fragment("max", {position: Position.ALONE, type: Type.FORENAME}),
     new Fragment("maxxer", {position: Position.END}),
     new Fragment("Mc", {position: Position.START, type: Type.SURNAME, hyphenate: true}),
